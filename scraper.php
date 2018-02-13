@@ -16,7 +16,7 @@ require 'scraperwiki/simple_html_dom.php';
 				
 				if($Checkpagination)
 				{
-					$mainpage		=	'https://indiankanoon.org'.$Checkpagination;
+					echo $mainpage		=	'https://indiankanoon.org'.$Checkpagination;
 					$checkpago		=	file_get_html($mainpage);
 										
 				}	
