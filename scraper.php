@@ -18,6 +18,7 @@ require 'scraperwiki/simple_html_dom.php';
 				 $paginationlink		=	$pagination.$var;
 				 $mainpageofprofiles 	=	file_get_html($paginationlink);
 				 $var++;
+				echo "$paginationlink\n";
 				 if($mainpageofprofiles)
 				 {
 					
@@ -43,7 +44,7 @@ require 'scraperwiki/simple_html_dom.php';
 						
 						//This is for Full Document	
 						$fulldocument	=	$element->find("//a[plaintext^=Full Document]", 0)->href;
-						echo "$paginationlink\n";
+						
 						scraperwiki::save_sqlite(array('nameofcase'), array('nameofcase' => $vsname, 
 									    'lvsname' => $lvsname,
 									   'courtname' => $courtname,
