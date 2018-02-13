@@ -10,10 +10,13 @@ require 'scraperwiki/simple_html_dom.php';
           	  $linkofpage	=	file_get_html($pagination);
 		  $NoMATCH	=	$linkofpage->find("//b[plaintext^=No matching results]", 0)->plaintext;
 					echo $NoMATCH;
-        				if($NoMATCH)
+        				if(!$NoMATCH)
 					{
 					   echo $linkofpage;
 					}
+else{
+echo 'Data Not Available on that link'. ' - > '.$linkofpage;
+}
 scraperwiki::save_sqlite(array('name'), array('name' => 'susan', 'occupation' => 'software developer'));
 //
 scraperwiki::select("* from data where 'name'='peter'")
