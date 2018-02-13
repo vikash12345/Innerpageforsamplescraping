@@ -15,7 +15,7 @@ require 'scraperwiki/simple_html_dom.php';
 					$mainpage	=	'https://indiankanoon.org'.$Checkpagination;
 					$checkpago	=	file_get_html($mainpage);
 					
-					if($Checkpagination)
+					if($checkpago)
 					{
 						$x	=	0;	
 						for($page = 0; $page <$x; $page++)
