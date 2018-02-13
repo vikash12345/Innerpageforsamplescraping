@@ -19,12 +19,14 @@ require 'scraperwiki/simple_html_dom.php';
 			if($checkpago)
 				{
 					echo "$mainpage\n";
-				}						  
+				}	
+			else
+			{
+ 				echo 'Data Not Available on that link'. ' - > '.$pagination;
+			}					  
 					 	
 			}	
-else{
- echo 'Data Not Available on that link'. ' - > '.$pagination;
-}
+
 scraperwiki::save_sqlite(array('name'), array('name' => 'susan', 'occupation' => 'software developer'));
 //
 scraperwiki::select("* from data where 'name'='peter'")
