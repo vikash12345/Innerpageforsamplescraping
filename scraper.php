@@ -12,7 +12,7 @@ require 'scraperwiki/simple_html_dom.php';
 		  $Next			=	$linkofpage->find("//a[plaintext^=Next]", 0);
   
 		$var	=	0;		
-        	while($Next == "Next")
+        	while($Next == true)
 			{	
 				$paginationlink	=	$pagination.$var;
 				$mainpageofprofiles 	=	file_get_html($paginationlink);
