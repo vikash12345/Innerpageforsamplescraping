@@ -12,7 +12,7 @@ require 'scraperwiki/simple_html_dom.php';
 					
         				if(!$NoMATCH)
 					{	
-						$Checkpagination	=	$linkofpage->find("//span[@class='pagenum']", 0)->plaintext;	
+						$Checkpagination	=	$linkofpage->find("//span[@class='pagenum']")->plaintext;	
 						echo $Checkpagination;
 					  
 					}
