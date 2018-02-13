@@ -15,7 +15,8 @@ require 'scraperwiki/simple_html_dom.php';
 						$Checkpagination	=	$linkofpage->find("//a[plaintext^=Next]", 0)->href;
 						if($Checkpagination)
 						{
-							echo $Checkpagination.'\n';
+							$checkpago	=	file_get_html($Checkpagination);
+							echo "$Checkpagination\n";
 						}
 						
 					  
