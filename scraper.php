@@ -7,10 +7,12 @@ require 'scraperwiki/simple_html_dom.php';
 //              
                   $urlofpage  = 'https://indiankanoon.org/search/?formInput=doctypes:supremecourt%20fromdate:1-4-1947%20todate:%2030-4-1947';
                   $pagination	=	$urlofpage.'&pagenum=';
-          				$linkofpage	=	file_get_html($pagination);
+          	  $linkofpage	=	file_get_html($pagination);
+		  $NoMATCH	=	$linkofpage->find("//b[plaintext^=No matching results]", 0)->plaintext;
+					echo $NoMATCH;
         				if($linkofpage)
 					{
-					    echo $linkofpage;
+					    $linkofpage
 					}
 scraperwiki::save_sqlite(array('name'), array('name' => 'susan', 'occupation' => 'software developer'));
 //
