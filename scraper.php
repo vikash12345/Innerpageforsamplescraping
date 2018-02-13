@@ -12,19 +12,16 @@ require 'scraperwiki/simple_html_dom.php';
 		  $Next			=	$linkofpage->find("//a[plaintext^=Next]", 0)->plaintext;
   
 		$var	=	0;		
-        	while($Next)
+        	while($var => 39)
 			{
 				$paginationlink	=	$pagination.$var;
 				$mainpageofprofiles 	=	file_get_html($paginationlink);
 				$var++;
-				if($mainpageofprofiles)
-				{
 				echo "$paginationlink\n";
-				}
-				if($NoMATCH)
-				{
-				break;
-				}
+			if($NoMATCH){
+			break;
+			}
+								
 				
 			}	
 
