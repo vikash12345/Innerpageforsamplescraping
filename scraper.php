@@ -54,7 +54,7 @@ require 'scraperwiki/simple_html_dom.php';
 									'paginationlink' => $paginationlink,
 									'pagination' => $pagination
 												   ));
-						 $var++;
+						 
 						
 					 }
 				 	 
@@ -64,6 +64,9 @@ require 'scraperwiki/simple_html_dom.php';
 				{
 					break;
 				}
+			else{
+			$var++;
+			}
 			
 			}	
 		}
