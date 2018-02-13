@@ -9,11 +9,11 @@ require 'scraperwiki/simple_html_dom.php';
                   $pagination	=	$urlofpage.'&pagenum=';
           	  $linkofpage	=	file_get_html($pagination);
 		  $NoMATCH	=	$linkofpage->find("//b[plaintext^=No matching results]", 0)->plaintext;
-		$var	=	0;			
-        	while($NoMATCH == true)
+		  $var	=	0;			
+        	while($NoMATCH == null)
 			{	
-				$Checkpagination	=	$linkofpage->find("//a[plaintext^=Next]", $page)->href;
-				$mainpage		=	'https://indiankanoon.org'.$Checkpagination.$var;
+				$Checkpagination	=	$linkofpage->find("//a[plaintext^=Next]", $var)->href;
+				$mainpage		=	'https://indiankanoon.org'.$Checkpagination;
 				$checkpago		=	file_get_html($mainpage);
 				
 			if($checkpago)
