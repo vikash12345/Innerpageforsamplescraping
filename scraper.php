@@ -15,16 +15,17 @@ require 'scraperwiki/simple_html_dom.php';
         	while($Next == true)
 			{	
 				$paginationlink	=	$pagination.$var;
-				
 				$mainpageofprofiles 	=	file_get_html($paginationlink);
+				$var++;
 				if($mainpageofprofiles)
 				{
 				echo "$paginationlink\n";
-				$var++;
 				}
-			else{
-				break;
+			if($Next == false)
+			{
+			break;
 			}
+			
 			
 					 	
 			}	
