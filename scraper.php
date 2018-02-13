@@ -7,22 +7,18 @@ require 'scraperwiki/simple_html_dom.php';
 //              
                   $urlofpage  = 'https://indiankanoon.org/search/?formInput=doctypes:bombay%20fromdate:1-12-1902%20todate:%2031-12-1902';
                   $pagination	=	$urlofpage.'&pagenum=';
-          	  $linkofpage	=	file_get_html($pagination);
+          	echo   $linkofpage	=	file_get_html($pagination);
 if($linkofpage){		  
 			$NoMATCH	=	$linkofpage->find("//b[plaintext^=No matching results]", 0)->plaintext;
 		  	$Next			=	$linkofpage->find("//a[plaintext^=Next]", 0)->plaintext;
 			$var	=	0;		
         	while($var <= 39)
 			{
-				$paginationlink	=	$pagination.$var;
+				$paginationlink		=	$pagination.$var;
 				$mainpageofprofiles 	=	file_get_html($paginationlink);
 				$var++;
-				echo $NoMATCH;
-			if($NoMATCH){
-			break;
-			}
-								
-				
+
+					
 			}	
 		}
 scraperwiki::save_sqlite(array('name'), array('name' => 'susan', 'occupation' => 'software developer'));
