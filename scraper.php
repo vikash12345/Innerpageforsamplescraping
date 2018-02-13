@@ -9,18 +9,16 @@ require 'scraperwiki/simple_html_dom.php';
                   $pagination	=	$urlofpage.'&pagenum=';
           	  $linkofpage	=	file_get_html($pagination);
 		  $NoMATCH	=	$linkofpage->find("//b[plaintext^=No matching results]", 0)->plaintext;
-		  $var	=	0;			
+		  			
         	while($NoMATCH == null)
 			{	
-				echo $Checkpagination	=	$linkofpage->find("//a[plaintext^=Next]", $var)->href;
-				$var++;	
+				echo $Checkpagination	=	$linkofpage->find("//a[plaintext^=Next]", 0)->href;
+				
 				if($Checkpagination)
 				{
 					$mainpage		=	'https://indiankanoon.org'.$Checkpagination;
 					$checkpago		=	file_get_html($mainpage);
-					
-					
-					
+										
 				}	
 			else
 			{
