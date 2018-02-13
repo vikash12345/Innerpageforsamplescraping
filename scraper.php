@@ -17,10 +17,10 @@ require 'scraperwiki/simple_html_dom.php';
 						{	
 							
 							$mainpage	=	'https://indiankanoon.org'.$Checkpagination;
-							$checkpago	=	file_get_html($mainpage);
 							While($Checkpagination != null)
 							{
-							echo "$mainpage\n";
+								$checkpago	=	file_get_html($mainpage);
+								echo "$mainpage\n";
 							}
 						}
 						
