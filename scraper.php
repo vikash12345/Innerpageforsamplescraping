@@ -15,12 +15,12 @@ if($linkofpage){
         	while($var > 39)
 			{
 				echo $paginationlink		=	$pagination.$var;
-				 $mainpageofprofiles 	=	file_get_html($paginationlink);
+				/* $mainpageofprofiles 	=	file_get_html($paginationlink);
 				$var++;
 			if(!$Next)
 			{
 				break;
-			}
+			}*/
 
 					
 			}	
