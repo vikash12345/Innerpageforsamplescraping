@@ -29,7 +29,7 @@ require 'scraperwiki/simple_html_dom.php';
 						$vsname		=	$element->find("//a[@class='result_url']",0)->plaintext;
 						
 						//Link of Case
-						$vsname		=	$element->find("//a[@class='result_url']",0)->href;
+						$lvsname		=	$element->find("//a[@class='result_url']",0)->href;
 						
 						//This is for Name of judicary
 						 $courtname	=	$element->find("div[@class='docsource']",0)->plaintext;
@@ -38,7 +38,7 @@ require 'scraperwiki/simple_html_dom.php';
 						$cite	=	$element->find("a[@class='cite_tag']",0)->plaintext;
 						
 						//Link of Cite
-						$cite	=	$element->find("a[@class='cite_tag']",0)->href;
+						$lcite	=	$element->find("a[@class='cite_tag']",0)->href;
 						
 						
 						//This is for Full Document	
