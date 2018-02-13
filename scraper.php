@@ -12,7 +12,7 @@ require 'scraperwiki/simple_html_dom.php';
 					echo $NoMATCH;
         				if($NoMATCH)
 					{
-					    $linkofpage
+					   echo $linkofpage;
 					}
 scraperwiki::save_sqlite(array('name'), array('name' => 'susan', 'occupation' => 'software developer'));
 //
