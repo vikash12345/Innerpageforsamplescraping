@@ -9,8 +9,10 @@ require 'scraperwiki/simple_html_dom.php';
                   $pagination	=	$urlofpage.'&pagenum=';
           	  $linkofpage	=	file_get_html($pagination);
 		  $NoMATCH	=	$linkofpage->find("//b[plaintext^=No matching results]", 0)->plaintext;
-		  $var	=	0;		
-        	while($NoMATCH == "No matching results")
+		  $Next			=	$linkofpage->find("//a[plaintext^=Next]", 0);
+  
+		$var	=	0;		
+        	while($Next == "Next")
 			{	
 				$paginationlink	=	$pagination.$var;
 				$mainpageofprofiles 	=	file_get_html($paginationlink);
