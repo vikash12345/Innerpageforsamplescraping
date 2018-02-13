@@ -13,8 +13,12 @@ require 'scraperwiki/simple_html_dom.php';
         	while($NoMATCH == true || $NoMATCH == null || $NoMATCH == "")
 			{	
 				$paginationlink	=	$pagination.$var;
+				$mainpageofprofiles 	=	file_get_html($paginationlink);
+				if($mainpageofprofiles)
+				{
 				echo "$paginationlink\n";
 				$var++;
+				}
 					 	
 			}	
 
