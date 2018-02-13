@@ -20,7 +20,7 @@ require 'scraperwiki/simple_html_dom.php';
 							While($Checkpagination != null)
 							{
 								$checkpago	=	file_get_html($mainpage);
-								echo "$mainpage\n";
+								echo "$mainpage++\n";
 							}
 						}
 						
