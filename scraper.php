@@ -14,10 +14,6 @@ require 'scraperwiki/simple_html_dom.php';
 		$var	=	0;		
         	while($Next)
 			{
-				if(!$Next)
-				{
-				break;
-				}
 				$paginationlink	=	$pagination.$var;
 				$mainpageofprofiles 	=	file_get_html($paginationlink);
 				$var++;
@@ -25,10 +21,11 @@ require 'scraperwiki/simple_html_dom.php';
 				{
 				echo "$paginationlink\n";
 				}
-			
-			
-			
-					 	
+				if($NoMATCH)
+				{
+				break;
+				}
+				
 			}	
 
 scraperwiki::save_sqlite(array('name'), array('name' => 'susan', 'occupation' => 'software developer'));
