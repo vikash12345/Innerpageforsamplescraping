@@ -44,7 +44,12 @@ require 'scraperwiki/simple_html_dom.php';
 						//This is for Full Document	
 						$fulldocument	=	$element->find("//a[plaintext^=Full Document]", 0)->href;
 						echo $vsname.'<br>';
-						
+scraperwiki::save_sqlite(array('nameofcase'), array('nameofcase' => $vsname, 
+									    'lvsname' => $lvsname,
+									   'courtname' => $courtname,
+									   'cite' => $cite,
+									   'lcite' => $lcite,
+									   'fulldocument' => $fulldocument));
 						
 					 }
 				 	 
