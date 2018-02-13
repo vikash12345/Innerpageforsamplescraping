@@ -25,10 +25,9 @@ require 'scraperwiki/simple_html_dom.php';
 								echo 	$linko;
 								
 							}
-						
-						
-					  
-					}
+											  
+					 	}
+					}	
 else{
  echo 'Data Not Available on that link'. ' - > '.$pagination;
 }
