@@ -18,18 +18,18 @@ require 'scraperwiki/simple_html_dom.php';
 				 $paginationlink		=	$pagination.$var;
 				 $mainpageofprofiles 	=	file_get_html($paginationlink);
 				 $var++;
-			echo "$paginationlink\n";
 				 if($mainpageofprofiles)
 				 {
-					 $resultlink	=	$mainpageofprofiles->find("//div[class='result_url']",0)->plaintext;
+					
 					 
 					 foreach($mainpageofprofiles->find("//div/div/div[@class='result']") as $element)
 					 {
+						 
 						//Name of Case
 						$vsname		=	$element->find("//a[@class='result_url']",0)->plaintext;
 						
 						//Link of Case
-						$lvsname		=	$element->find("//a[@class='result_url']",0)->href;
+						$vsname		=	$element->find("//a[@class='result_url']",0)->href;
 						
 						//This is for Name of judicary
 						 $courtname	=	$element->find("div[@class='docsource']",0)->plaintext;
@@ -38,34 +38,23 @@ require 'scraperwiki/simple_html_dom.php';
 						$cite	=	$element->find("a[@class='cite_tag']",0)->plaintext;
 						
 						//Link of Cite
-						$lcite	=	$element->find("a[@class='cite_tag']",0)->href;
+						$cite	=	$element->find("a[@class='cite_tag']",0)->href;
 						
 						
 						//This is for Full Document	
 						$fulldocument	=	$element->find("//a[plaintext^=Full Document]", 0)->href;
+						echo $vsname.'<br>';
 						
-						 
-			scraperwiki::save_sqlite(array('nameofcase'), array('nameofcase' => $vsname, 
-									    'lvsname' => $lvsname,
-									   'courtname' => $courtname,
-									   'cite' => $cite,
-									   'lcite' => $lcite,
-									   'fulldocument' => $fulldocument));
-		 
-						 
 						
 					 }
 				 	 
 					 	
 				 }
-				if(!$resultlink)
+				if(!$vsname)
 				{
 					break;
 				}
 			
 			}	
 		}
-
-
-
 ?>
