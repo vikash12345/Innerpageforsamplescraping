@@ -12,21 +12,19 @@ require 'scraperwiki/simple_html_dom.php';
 					
         				if(!$NoMATCH)
 					{	
-						
-						$Checkpagination	=	$linkofpage->find("//a[plaintext^=Next]", 0)->href;
-						if($Checkpagination)
-						{	
-							
-							$mainpage	=	'https://indiankanoon.org'.$Checkpagination;
-							$checkpago	=	file_get_html($mainpage);
-							While($Checkpagination != null)
+					$mainpage	=	'https://indiankanoon.org'.$Checkpagination;
+					$checkpago	=	file_get_html($mainpage);
+					
+					if($Checkpagination)
+					{
+						$x	=	0;	
+						for($page = 0; $page <$x; $page++)
 							{
-								$linko	=	$linkofpage->find("//a[plaintext^=Next]", 0)->href;
-								echo 	$linko;
-								
-							}
-											  
-					 	}
+								$paga	=	$linkofpage->find("//a[plaintext^=Next]", $page)->href;
+								echo $pag;
+						}
+					}						  
+					 	
 					}	
 else{
  echo 'Data Not Available on that link'. ' - > '.$pagination;
