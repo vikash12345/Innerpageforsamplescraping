@@ -9,23 +9,19 @@ require 'scraperwiki/simple_html_dom.php';
                   $pagination	=	$urlofpage.'&pagenum=';
           	  $linkofpage	=	file_get_html($pagination);
 		  $NoMATCH	=	$linkofpage->find("//b[plaintext^=No matching results]", 0)->plaintext;
-					
-        				if(!$NoMATCH)
-					{	
-					$mainpage	=	'https://indiankanoon.org'.$Checkpagination;
-					$checkpago	=	file_get_html($mainpage);
-					
-					if($checkpago)
-					{
-						$x	=	0;	
-						for($page = 0; $page <$x; $page++)
-							{
-								$paga	=	$linkofpage->find("//a[plaintext^=Next]", $page)->href;
-								echo $pag;
-						}
-					}						  
+		$var	=	0;			
+        	while($NoMATCH == true)
+			{	
+				$Checkpagination	=	$linkofpage->find("//a[plaintext^=Next]", $page)->href;
+				$mainpage		=	'https://indiankanoon.org'.$Checkpagination.$var;
+				$checkpago		=	file_get_html($mainpage);
+				
+			if($checkpago)
+				{
+					echo "$mainpage\n";
+				}						  
 					 	
-					}	
+			}	
 else{
  echo 'Data Not Available on that link'. ' - > '.$pagination;
 }
