@@ -12,8 +12,12 @@ require 'scraperwiki/simple_html_dom.php';
 					
         				if(!$NoMATCH)
 					{	
-						$Checkpagination	=	$linkofpage->find("//a[plaintext^=Next]", 0)->href;	
-						echo $Checkpagination;
+						$Checkpagination	=	$linkofpage->find("//a[plaintext^=Next]", 0)->href;
+						if($Checkpagination)
+						{
+							echo $Checkpagination.'\n';
+						}
+						
 					  
 					}
 else{
