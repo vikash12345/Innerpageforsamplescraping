@@ -17,7 +17,7 @@ require 'scraperwiki/simple_html_dom.php';
 			{
 				 $paginationlink		=	$pagination.$var;
 				 $mainpageofprofiles 	=	file_get_html($paginationlink);
-				 $var++;
+				 
 				echo "$paginationlink\n";
 				 if($mainpageofprofiles)
 				 {
@@ -54,6 +54,7 @@ require 'scraperwiki/simple_html_dom.php';
 									'paginationlink' => $paginationlink,
 									'pagination' => $pagination
 												   ));
+						 $var++;
 						
 					 }
 				 	 
