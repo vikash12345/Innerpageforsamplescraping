@@ -43,7 +43,7 @@ require 'scraperwiki/simple_html_dom.php';
 						
 						//This is for Full Document	
 						$fulldocument	=	$element->find("//a[plaintext^=Full Document]", 0)->href;
-						echo "$pagination\n";
+						echo "$paginationlink\n";
 						scraperwiki::save_sqlite(array('nameofcase'), array('nameofcase' => $vsname, 
 									    'lvsname' => $lvsname,
 									   'courtname' => $courtname,
