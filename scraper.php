@@ -10,7 +10,7 @@ require 'scraperwiki/simple_html_dom.php';
           	  $linkofpage	=	file_get_html($pagination);
 		  $NoMATCH	=	$linkofpage->find("//b[plaintext^=No matching results]", 0)->plaintext;
 		  $var	=	0;		
-        	while($NoMATCH == null)
+        	while($NoMATCH == true)
 			{	
 				$paginationlink	=	$pagination.$var;
 				echo "$paginationlink\n";
