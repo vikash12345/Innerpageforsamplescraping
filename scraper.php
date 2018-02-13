@@ -12,13 +12,13 @@ require 'scraperwiki/simple_html_dom.php';
 		  $var	=	0;			
         	while($NoMATCH == null)
 			{	
-				$Checkpagination	=	$linkofpage->find("//a[plaintext^=Next]", $var++)->href;
-				$mainpage		=	'https://indiankanoon.org'.$Checkpagination;
-				$checkpago		=	file_get_html($mainpage);
-				
-			if($checkpago)
+				$Checkpagination	=	$linkofpage->find("//a[plaintext^=Next]", $var)->href;
+				if($Checkpagination)
 				{
+					$mainpage		=	'https://indiankanoon.org'.$Checkpagination;
+					$checkpago		=	file_get_html($mainpage);
 					echo "$mainpage\n";
+					$var++;
 					
 				}	
 			else
