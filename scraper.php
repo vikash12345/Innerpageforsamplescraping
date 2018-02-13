@@ -18,6 +18,7 @@ require 'scraperwiki/simple_html_dom.php';
 				 $paginationlink		=	$pagination.$var;
 				 $mainpageofprofiles 	=	file_get_html($paginationlink);
 				 $var++;
+			echo "$paginationlink\n";
 				 if($mainpageofprofiles)
 				 {
 					 $resultlink	=	$mainpageofprofiles->find("//div[class='result_url']",0)->plaintext;
