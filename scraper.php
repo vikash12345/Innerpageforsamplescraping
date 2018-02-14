@@ -5,9 +5,8 @@
 require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 //              
-     	$urlofpage  = 'https://indiankanoon.org/search/?formInput=doctypes:delhi%20fromdate:1-11-1966%20todate:%2030-11-1966';
+    $urlofpage  = 'https://indiankanoon.org/search/?formInput=doctypes:delhi%20fromdate:1-11-1966%20todate:%2030-11-1966';
         $html		=	file_get_html($urlofpage);
-		
 	if($html)
 	{
 		//  Page loaded successfully
@@ -16,7 +15,7 @@ require 'scraperwiki/simple_html_dom.php';
         while ($RecordFlag == true) 
 		{
 				$RecordLoop +=  1;
-				$paginationlink		=	$urlofpage.$RecordLoop;
+				$paginationlink		=	$urlofpage.'&pagenum='.$RecordLoop;
 				echo $paginationlink.'<br>';
 				$mainpageofprofiles 	=	file_get_html($paginationlink);
 				if($mainpageofprofiles)
