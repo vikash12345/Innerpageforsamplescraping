@@ -5,26 +5,25 @@
 require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 //              
-      $urlofpage  = 'https://indiankanoon.org/search/?formInput=doctypes:delhi%20fromdate:1-11-1966%20todate:%2030-11-1966';
-        $pagination	=	$urlofpage.'&pagenum=';
-        $linkofpage	=	file_get_html($pagination);
-		 if($linkofpage)
-		 {	
- 		  	$Next		=	$linkofpage->find("//a[plaintext^=Next]", 0);
-			$NoMATCH	=	$linkofpage->find("//b[plaintext^=No matching results]", 0);
-			$var	=	0;		
-        	while($var < 40)
-			{
-				 $paginationlink		=	$pagination.$var;
-				 $mainpageofprofiles 	=	file_get_html($paginationlink);
-				 
-				echo "$paginationlink\n";
-				 if($mainpageofprofiles)
-				 {
+     	$urlofpage  = 'https://indiankanoon.org/search/?formInput=doctypes:delhi%20fromdate:1-11-1966%20todate:%2030-11-1966';
+        $html		=	file_get_html($urlofpage);
+		
+	if($html)
+	{
+		//  Page loaded successfully
+        $RecordLoop =   0;
+        $RecordFlag =   true;
+        while ($RecordFlag == true) 
+		{
+				$RecordLoop +=  1;
+				$paginationlink		=	$urlofpage.$RecordLoop;
+				echo $paginationlink.'<br>';
+				$mainpageofprofiles 	=	file_get_html($paginationlink);
+				if($mainpageofprofiles)
+				{
 					
-					 
-					 foreach($mainpageofprofiles->find("//div/div/div[@class='result']") as $element)
-					 {
+					foreach($mainpageofprofiles->find("//div/div/div[@class='result']") as $element)
+					{
 						 
 						//Name of Case
 						$vsname		=	$element->find("//a[@class='result_url']",0)->plaintext;
@@ -44,30 +43,19 @@ require 'scraperwiki/simple_html_dom.php';
 						
 						//This is for Full Document	
 						$fulldocument	=	$element->find("//a[plaintext^=Full Document]", 0)->href;
+												
 						
-						scraperwiki::save_sqlite(array('nameofcase'), array('nameofcase' => $vsname, 
-									    'lvsname' => $lvsname,
-									   'courtname' => $courtname,
-									   'cite' => $cite,
-									   'lcite' => $lcite,
-									   'fulldocument' => $fulldocument,
-									'paginationlink' => $paginationlink,
-									'pagination' => $pagination
-												   ));
-						 
-						
-					 }
-				 	 
-					 	
-				 }
-				if(!$vsname)
-				{
-					break;
+					}
 				}
-			else{
-			$var++;
-			}
+            //  End if nor more records
+            if (!$vsname) 
+			{
+                $RecordFlag =   false;
+                break;
+            }
 			
-			}	
+			
 		}
+		
+	}
 ?>
